@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import LocalStorageService from './LocalStorageService';
+import LocalStorageService from './LocalStorage';
 import Home from '../pages/Home';
 
 function PrivateOutlet() {

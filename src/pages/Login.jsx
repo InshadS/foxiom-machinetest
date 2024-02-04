@@ -1,12 +1,23 @@
 import { useState } from 'react';
-import { FaGoogle, FaLinkedin } from 'react-icons/fa';
+import { login } from '../api';
+import LinkedInLoginComponent from '../components/LinkedInLogin';
+import GoogleLoginComponent from '../components/GoogleLogin';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const data = await login(email, password);
+      console.log(data);
+    } catch (error) {
+      setError(error.message);
+      console.error(error);
+    }
   };
 
   return (
@@ -58,6 +69,9 @@ const Login = () => {
               </button>
             </div>
           </form>
+
+          {error && <p className='text-red-500'>{error}</p>}
+
           <div className='text-center mb-4 relative'>
             <hr className='absolute left-0 top-1/2 w-1/4 border-gray-300 transform -translate-y-1/2' />
             <span className='text-gray-500 inline-block px-2'>
@@ -65,15 +79,9 @@ const Login = () => {
             </span>
             <hr className='absolute right-0 top-1/2 w-1/4 border-gray-300 transform -translate-y-1/2' />
           </div>
-          <div className='flex flex-col md:flex-row md:space-x-4 items-center w-full'>
-            <button className='border bg-[#0077b5] py-2 text-white px-4 rounded-md flex items-center justify-center w-full md:w-1/2 text-center'>
-              <FaLinkedin color='white' size={24} />
-              <span className='ml-1'>LinkedIn</span>
-            </button>
-            <button className='border bg-black py-2 px-4 text-white rounded-md flex items-center justify-center w-full md:w-1/2 text-center'>
-              <FaGoogle size={20} color='white' />
-              <span className='ml-1'>Google</span>
-            </button>
+          <div className='flex flex-col md:flex-row md:space-x-4 items-center w-full gap-3'>
+            <LinkedInLoginComponent />
+            <GoogleLoginComponent />
           </div>
         </div>
       </div>
