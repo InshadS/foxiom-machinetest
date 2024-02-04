@@ -18,8 +18,8 @@ const GoogleLoginComponent = () => {
     <GoogleLogin
       onSuccess={handleGoogleLoginSuccess}
       onFailure={handleGoogleLoginFailure}
-      text='continue_with'
-      theme='outline'
+      theme='filled_black'
+      size='large'
       width='0'
     />
   );

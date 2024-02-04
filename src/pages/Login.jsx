@@ -68,9 +68,8 @@ const Login = () => {
                 Sign in
               </button>
             </div>
+            {error && <p className='text-red-500'>{error}</p>}
           </form>
-
-          {error && <p className='text-red-500'>{error}</p>}
 
           <div className='text-center mb-4 relative'>
             <hr className='absolute left-0 top-1/2 w-1/4 border-gray-300 transform -translate-y-1/2' />
@@ -79,7 +78,7 @@ const Login = () => {
             </span>
             <hr className='absolute right-0 top-1/2 w-1/4 border-gray-300 transform -translate-y-1/2' />
           </div>
-          <div className='flex flex-col md:flex-row md:space-x-4 items-center w-full gap-3'>
+          <div className='flex flex-col sm:flex-row xs:space-x-4 items-center w-full gap-3'>
             <LinkedInLoginComponent />
             <GoogleLoginComponent />
           </div>
