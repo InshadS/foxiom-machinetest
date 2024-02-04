@@ -1,13 +1,14 @@
 import { FaLinkedin } from 'react-icons/fa';
 import { LinkedIn } from 'react-linkedin-login-oauth2';
 import { useNavigate } from 'react-router-dom';
+import LocalStorageService from '../utils/LocalStorage';
 
 const LinkedInLoginComponent = () => {
   const navigate = useNavigate();
 
   // Handle LinkedIn login success
-  const handleLinkedInLoginSuccess = (data) => {
-    console.log(data);
+  const handleLinkedInLoginSuccess = (token) => {
+    LocalStorageService.setToken(token);
     navigate('/'); // Redirect to the home page after successful login
   };
 
