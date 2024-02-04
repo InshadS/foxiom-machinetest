@@ -5,6 +5,7 @@ import { CiLogout } from 'react-icons/ci';
 const Home = () => {
   const navigate = useNavigate();
 
+  // Function to handle user logout
   const handleLogout = () => {
     LocalStorageService.clearAccessToken();
     navigate('/login');

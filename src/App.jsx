@@ -9,20 +9,17 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Public routes accessible without authentication */}
         <Route element={<PublicOutlet />}>
+          {/* Route for the login page */}
           <Route path='/login' element={<Login />} />
-          {/* <Route
-            path='/sociallogin/google/'
-            element={<GoogleCallbackPage />}
-          ></Route>
-          <Route
-            path='/sociallogin/facebook/'
-            element={<FacebookCallbackPage />}
-          ></Route> */}
         </Route>
+        {/* Private routes requiring authentication */}
         <Route element={<PrivateOutlet />}>
+          {/* Route for the home page */}
           <Route path='/' element={<Home />} />
         </Route>
+        {/* Fallback route for handling invalid URLs */}
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>

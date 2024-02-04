@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 const LinkedInLoginComponent = () => {
   const navigate = useNavigate();
 
+  // Handle LinkedIn login success
   const handleLinkedInLoginSuccess = (data) => {
     console.log(data);
-    navigate('/');
+    navigate('/'); // Redirect to the home page after successful login
   };
 
+  // Handle LinkedIn login failure
   const handleLinkedInLoginFailure = (error) => {
     console.error(error);
   };

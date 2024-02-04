@@ -8,10 +8,12 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  // Handle login form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // API call for login with email and password
       const data = await login(email, password);
       console.log(data);
     } catch (error) {
@@ -68,7 +70,8 @@ const Login = () => {
                 Sign in
               </button>
             </div>
-            {error && <p className='text-red-500'>{error}</p>}
+            {/* Display error message if there is an error */}
+            {error && <p className='text-red-500'>{error}</p>}{' '}
           </form>
 
           <div className='text-center mb-4 relative'>
@@ -78,6 +81,8 @@ const Login = () => {
             </span>
             <hr className='absolute right-0 top-1/2 w-1/4 border-gray-300 transform -translate-y-1/2' />
           </div>
+
+          {/* LinkedIn and Google login components */}
           <div className='flex flex-col sm:flex-row xs:space-x-4 items-center w-full gap-3'>
             <LinkedInLoginComponent />
             <GoogleLoginComponent />

@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 const GoogleLoginComponent = () => {
   const navigate = useNavigate();
 
+  // Handle Google login success
   const handleGoogleLoginSuccess = (credentialResponse) => {
     LocalStorageService.setToken(credentialResponse.credential);
-    navigate('/');
+    navigate('/'); // Redirect to the home page after successful login
   };
 
+  // Handle Google login failure
   const handleGoogleLoginFailure = (error) => {
     console.error(error);
   };

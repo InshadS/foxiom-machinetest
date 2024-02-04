@@ -17,6 +17,8 @@ This will create a hidden file with the environment variables.
 
 Add your Google and LinkedIn Client IDs in the .env.
 
+Note: Please ensure that you have added the redirect URL 'http://localhost:5173' to the developer console to enable authentication to function correctly(on local).
+
 ### `npm install`
 
 This will install all the dependencies taht are required to run the app.

@@ -1,12 +1,17 @@
+// login function to authenticate users
 const login = async (email, password) => {
   try {
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    // Make a POST request to the login endpoint
+    const response = await fetch(
+      `${import.meta.env.VITE_SERVER_URL}/api/login`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error('Login failed');
